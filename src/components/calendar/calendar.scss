@@ -1,0 +1,51 @@
+calendar {
+	.header-row {
+		padding-top: 30px;
+		padding-bottom: 20px;
+	}
+
+	.header-text {
+		font-weight: bold;
+		font-size: 1.3em;
+	}
+
+	.loading {
+		opacity: 0.3 !important;
+	}
+	
+	.days-row {
+		border-bottom: 1px solid map-get($colors, primary);
+	}
+
+	.date-col {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		overflow: hidden;
+	}
+
+	.days-row, .dates-row {
+		line-height: 1.8em;
+	}
+
+	.date {
+		width: 35px;
+		height: 35px;
+		margin: 0 auto;
+	
+		&.no-event {
+			opacity: 0.7;
+		}
+	}
+
+	.dots {
+		margin-top: -20px;
+		color: #e00b59;
+		font-weight: bold;
+	}
+
+	.today {
+		color: map-get($colors, favorite);
+		font-weight: bold;
+		opacity: 1 !important;
+	}
+}

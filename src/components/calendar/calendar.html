@@ -1,0 +1,56 @@
+<ion-row class="header-row" text-center>
+	<ion-col col-3 text-right (click)="changeMonth('prev')">
+		<button ion-button [disabled]="loading" favorite clear [ngClass]="loading ? 'loading' : ''">
+			<ion-icon  
+				favorite 
+				ios="ios-arrow-back"
+				md="ios-arrow-back">
+			</ion-icon>
+		</button>
+	</ion-col>
+	<ion-col col-6>
+		<div class="header-text primary-text">{{ filters.date.toDate() | amDateFormat:'MMMM' }}</div>
+		{{ filters.date.toDate() | amDateFormat:'YYYY' }}
+	</ion-col>
+	<ion-col col-3 text-left (click)="changeMonth('next')" >
+		<button ion-button [disabled]="loading" favorite clear [ngClass]="loading ? 'loading' : ''">
+			<ion-icon 
+				favorite
+				ios="ios-arrow-forward"
+				md="ios-arrow-forward">
+			</ion-icon>
+		</button>
+	</ion-col>
+</ion-row>
+
+<div padding [ngClass]="loading ? 'loading' : ''" text-center>
+	<ion-row class="days-row">
+		<ion-col 
+			*ngFor="let dayName of weekdays">
+			{{ dayName }}
+		</ion-col>
+	</ion-row>
+
+	<ion-row class="dates-row" text-center *ngFor="let week of weeks">
+		<ion-col 
+			class="date-col"
+			*ngFor="let day of daysOfWeek(week)"
+			(click)="onEventSelect.emit(day)">
+			<div 
+				class="date"
+				*ngIf="day.date" 
+				[ngClass]="{'today' : day.today, 'no-event' : day.events.length == 0}">
+				{{ day.date }}
+				
+				<div class="dots" *ngIf="day.events.length > 0">
+					<span 
+						*ngFor="let event of day.events"
+						[ngClass]="event.color ? event.color.name : 'default'"
+						class="dot">
+						.
+					</span>
+				</div>
+			</div>
+		</ion-col>
+	</ion-row>
+</div>

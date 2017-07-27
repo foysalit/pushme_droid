@@ -5,6 +5,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Push } from '@ionic-native/push';
 import { Device } from '@ionic-native/device';
+import { MomentModule } from 'angular2-moment';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -14,6 +15,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { NotificationProvider } from '../providers/notification/notification';
+import { CalendarComponent } from '../components/calendar/calendar';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,11 @@ import { NotificationProvider } from '../providers/notification/notification';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    CalendarComponent
   ],
   imports: [
+    MomentModule,
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp)
@@ -40,9 +44,9 @@ import { NotificationProvider } from '../providers/notification/notification';
     StatusBar,
     SplashScreen,
     Device,
-    Push,    
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NotificationProvider
+    Push,
+    NotificationProvider,    
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
