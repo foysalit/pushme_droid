@@ -1,4 +1,4 @@
-## An minimal and elegant calendar component built for ionic
+## A minimal and elegant calendar component built for ionic
 
 Please follow [this commit](https://github.com/foysalit/pushme_droid/commit/74aea7e086a931ad700c00b0c5f1d04b66564994) if you'd like to build it on your own or understand how the internals work. 
 
